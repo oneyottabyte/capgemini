@@ -114,6 +114,7 @@ A lista de todos os anagramas pares são: [i, i], [q, q] e [ifa, fai] que estão
 <a name = "tech_stack"></a>
 
 - Java 17 - Versão do Java utilizada
+- STS - IDE utilizada
 
 <h1 id="desenvolvedor">
 <img height="30" src="https://img.icons8.com/color/48/000000/devpost.png"/>
