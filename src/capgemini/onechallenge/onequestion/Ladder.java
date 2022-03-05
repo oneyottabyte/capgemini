@@ -1,4 +1,4 @@
-package capgemini.onequestion;
+package capgemini.onechallenge.onequestion;
 
 import java.util.Scanner;
 

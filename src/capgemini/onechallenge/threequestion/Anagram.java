@@ -1,4 +1,4 @@
-package capgemini.threequestion;
+package capgemini.onechallenge.threequestion;
 
 import java.util.Arrays;
 import java.util.Scanner;
