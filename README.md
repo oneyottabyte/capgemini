@@ -20,7 +20,8 @@ Olá! Seja bem-vindo (a) à terceira etapa do processo de seleção para a Acade
 <img height="30" src="https://img.icons8.com/color/48/000000/documents.png"/>
   Questão 01
 </h2>
-
+<details>
+<summary>Veja Aqui</summary>
 Escreva um algoritmo que mostre na tela uma escada de tamanho n utilizando o caractere * e espaços. A base e altura da escada devem ser iguais ao valor de n. A última linha não deve conter nenhum espaço.
 
 Exemplo:
@@ -72,13 +73,15 @@ public class Ladder {
 	}
 }
 ```
-
+</details>
 
 <h2 id="question02">
 <img height="30" src="https://img.icons8.com/color/48/000000/documents.png"/>
   Questão 02
 </h2>
 
+<details>
+<summary>Veja Aqui</summary>
 Débora se inscreveu em uma rede social para se manter em contato com seus amigos. A página de cadastro exigia o preenchimento dos campos de nome e senha, porém a senha precisa ser forte. O site considera uma senha forte quando ela satisfaz os seguintes critérios:
 
 Possui no mínimo 6 caracteres.
@@ -127,12 +130,16 @@ public class StrongPassword {
 	}
 }
 ```
+</details>
 
 <h2 id="question03">
 <img height="30" src="https://img.icons8.com/color/48/000000/documents.png"/>
   Questão 03
 </h2>
 
+<details>
+<summary>Veja Aqui</summary>
+	
 Duas palavras podem ser consideradas anagramas de si mesmas se as letras de uma palavra podem ser realocadas para formar a outra palavra. Dada uma string qualquer, desenvolva um algoritmo que encontre o número de pares de substrings que são anagramas.
 
 Exemplo 1)
@@ -216,7 +223,273 @@ public class Anagram {
 	}
 }
 ```
+</details>
 
+
+
+
+
+<h1 align="center">
+DESAFIO DE PROGRAMAÇÃO 2 - ACADEMIA CAPGEMINI
+</h1>
+
+<h2 id="question01">
+<img height="30" src="https://img.icons8.com/color/48/000000/documents.png"/>
+  Questão 01
+</h2>
+
+<details>
+<summary>Veja Aqui</summary>
+A mediana de uma lista de números é basicamente o elemento que se encontra no meio da lista após a ordenação. Dada uma lista de números com um número ímpar de elementos, desenvolva um algoritmo que encontre a mediana.
+
+Exemplo:
+
+Entrada:
+```
+arr = [9, 2, 1, 4, 6]
+```
+
+Saída:
+```
+4
+```
+Para testar, você pode copiar o código abaixo e executar em sua IDE preferida ou um Compilador online.
+Indico este (marque a opção Interactive) : https://www.jdoodle.com/online-java-compiler/
+
+```java
+import java.util.*;
+
+public class MiddleNumber {
+
+	public static void main(String[] args) {
+
+		Scanner scan = new Scanner(System.in);
+
+		List<Integer> arr = new ArrayList<>();
+
+		System.out.print("arr=");
+		String numeros = scan.nextLine();
+
+		arr = extractNumbersForArray(numeros);
+
+		Collections.sort(arr);
+		
+		System.out.println(calculateMedian(arr));
+
+		scan.close();
+
+	}
+
+	public static List<Integer> extractNumbersForArray(String str) {
+		List<Integer> arr = new ArrayList<>();
+
+		Pattern pattern = Pattern.compile("[0-9]+");
+		Matcher match = pattern.matcher(str);
+
+		while (match.find()) {
+			arr.add(Integer.parseInt(match.group().trim()));
+		}
+
+		return arr;
+	}
+
+	public static Integer calculateMedian(List<Integer> arr){
+		
+		int sizeArray = arr.size();
+		int median;
+		
+		if(sizeArray % 2 == 0) {
+			int j = ((arr.size()) / 2);
+			int i = j - 1;
+			median = (arr.get(j) + arr.get(i)) / 2;
+			return median;
+		}
+		
+		median = ((sizeArray + 1) / 2) - 1;
+		return arr.get(median); 
+	}
+}
+```
+</details>
+
+<h2 id="question02">
+<img height="30" src="https://img.icons8.com/color/48/000000/documents.png"/>
+  Questão 02
+</h2>
+
+<details>
+<summary>Veja Aqui</summary>
+	
+Dado um vetor de inteiros n e um inteiro qualquer x. Construa um algoritmo que determine o número de elementos pares do vetor que tem uma diferença igual ao valor de x.
+
+Exemplo:
+
+Entrada:
+```
+n = [1, 5, 3, 4, 2]
+```
+
+Saída:
+```
+3
+```
+Explicação:
+Existem 3 pares de inteiros no vetor com uma diferença de 2: [5, 3], [4, 2] e [3, 1].
+
+Para testar, você pode copiar o código abaixo e executar em sua IDE preferida ou um Compilador online.
+Indico este (marque a opção Interactive) : https://www.jdoodle.com/online-java-compiler/
+
+```java
+public class VectorPairElements {
+
+	public static void main(String[] args) {
+
+		int[] n = {1, 5, 3, 4, 2};
+		int x = 2, count = 0;
+		
+		for(int i = 0; i < n.length; i++) {
+			for(int j = 0; j < n.length; j++) {
+				if(n[i] - n[j] == x) {
+					count++;
+				}
+			}
+		}
+		
+		System.out.println(count);
+	}
+}
+```
+</details>
+
+<h2 id="question03">
+<img height="30" src="https://img.icons8.com/color/48/000000/documents.png"/>
+  Questão 03
+</h2>
+	
+<details>
+<summary>Veja Aqui</summary>
+	
+Um texto precisa ser encriptado usando o seguinte esquema. Primeiro, os espaços são removidos do texto. Então, os caracteres são escritos em um grid, no qual as linhas e colunas tem as seguintes regras:
+
+√T <= linha <= coluna <= √T
+
+ - Considere T, como o tamanho do texto.
+ - Se certifique de que linhas x colunas >= .
+ - Se múltiplos grids satisfazem as condições, escolha aquele com a menor área.
+
+Escreva um algoritmo que ao receber uma string s, mostre a mensagem encriptada de acordo com as regras descritas.
+
+Exemplos:
+
+Exemplo 1)
+
+Entrada:
+```
+s = tenha um bom dia
+```
+
+Saída:
+```
+taoa eum nmd hbi
+```
+
+Explicação:
+
+Depois de remover os espaços, a string tem 13 caracteres. √13 está entre 3 e 4, então a string é rescrita na forma de um grid com 4 linhas e 4 colunas:
+```
+tenh
+aumb
+omdi
+a
+```
+O resultado é obtido ao mostrar os caracteres de cada coluna, com um espaço entre as colunas de texto. A mensagem encriptada é obtida ao mostrar os caracteres de cada linha com um espaço entre as colunas.
+
+
+Exemplo 2)
+
+Entrada:
+```
+s = ola mundo
+```
+
+Saída:
+```
+omd luo an
+```
+
+Explicação:
+
+Depois de remover os espaços a string tem 8 caracteres. √8 está entre 2 e 3, então a string é reescrita na forma de um grid com 3 linhas e 3 colunas:
+```
+ola
+
+mun
+
+do
+```
+
+Para testar, você pode copiar o código abaixo e executar em sua IDE preferida ou um Compilador online.
+Indico este (marque a opção Interactive) : https://www.jdoodle.com/online-java-compiler/
+
+```java
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Encryptor {
+
+	public static void main(String[] args) throws IOException {
+
+		InputStreamReader r = new InputStreamReader(System.in);
+		BufferedReader br = new BufferedReader(r);
+		
+		System.out.print("s = ");
+		String s = br.readLine();
+
+		System.out.println(encryptString(s));
+	}
+
+	public static String encryptString(String s) {
+		
+		s = s.replace(" ", "");
+
+		int sizeString = s.length();
+		int row, column;
+		row = (int) Math.floor(Math.sqrt(sizeString));
+		column = (int) Math.ceil(Math.sqrt(sizeString));
+
+		if (row * column < sizeString) {
+			row = column;
+		}
+
+		String arr[] = s.split("");
+		String grid[][] = new String[row][column];
+		int count = 0;
+
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j < column; j++) {
+
+				if (count < sizeString) {
+					grid[i][j] = arr[count];
+					count++;
+				}
+			}
+		}
+
+		s = "";
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j < column; j++) {
+				if (grid[j][i] != null)
+					s += grid[j][i];
+			}
+			s += " ";
+		}
+
+		return s.trim();
+	}
+}
+```
+</details>
 
 <h1 id="tecnologias-dependencias">
 <img height="30" src="https://img.icons8.com/fluency/50/000000/administrative-tools.png"/>
